@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Assessment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for background images */
+        .upload-section {
+            background-image: url('upload_section_image.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .about-section {
+            background-image: url('about_section_image.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Smooth color transition animation */
+        @keyframes colorChange {
+            0% { color: #3b82f6; }
+            33% { color: #60a5fa; }
+            66% { color: #000000; }
+            100% { color: #3b82f6; }
+        }
+
+        .animated-list li {
+            animation: colorChange 5s infinite;
+            transition: color 0.5s ease-in-out;
+        }
+
+        .animated-list li:nth-child(1) { animation-delay: 0s; }
+        .animated-list li:nth-child(2) { animation-delay: 1s; }
+        .animated-list li:nth-child(3) { animation-delay: 2s; }
+        .animated-list li:nth-child(4) { animation-delay: 3s; }
+        .animated-list li:nth-child(5) { animation-delay: 4s; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="relative min-h-screen">
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="relative z-10 bg-black bg-opacity-50 min-h-screen flex flex-col">
+            <header class="bg-gray-800 text-white p-4">
+                <h1 class="text-center text-xl font-bold">OCR and NLP-Driven E-Assessment: Automated Grading of Handwritten Exam Papers</h1>
+            </header>
+
+            <main class="flex-grow p-6 flex flex-col lg:flex-row gap-10">
+                <!-- Left Section -->
+                <section class="upload-section relative bg-white bg-opacity-90 shadow-md rounded-lg p-6 flex-[2] text-white w-[32%]">
+                    <u><h2 class="text-lg font-semibold mb-4 text-lg">Upload Section</h2></u>
+                    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+                        <div class="mb-14">
+                            <label class="block mb-2 font-medium text-base">Upload Student's Answer PDF:</label>
+                            <input type="file" name="answer_pdf" class="block w-full border rounded-lg px-3 py-2" required />
+                        </div>
+                        <div>
+                            <label class="block mb-2 font-medium text-base">Upload Your Question File:</label>
+                            <input type="file" name="question_file" class="block w-full border rounded-lg px-3 py-2" required />
+                        </div>
+                        <div class="mt-14 flex justify-center">
+                            <button type="submit" class="w-1/2 bg-blue-900 hover:bg-blue-600 text-white font-bold py-1 px-4 rounded-md">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Right Section -->
+                <section class="about-section relative bg-white bg-opacity-90 shadow-md rounded-lg p-6 flex-[1] text-white w-[32%]">
+                    <u><h2 class="text-2xl font-bold mb-4">About</h2></u>
+                    <ul id="aboutList" class="list-disc pl-6 space-y-6 text-lg font-semibold animated-list">
+                        <li>Navigate with ease, experience seamless design.</li>
+                        <li>Upload your files and let the magic happen.</li>
+                        <li>Instant results, real-time feedback at your fingertips.</li>
+                        <li>Watch the grading unfold, live and in action.</li>
+                        <li>Accessible for all, designed for everyone.</li>
+                    </ul>
+                </section>
+            </main>
+
+            <footer class="bg-gray-800 text-white p-4 text-center">
+                <p class="text-base">&copy; 2025 E-Assessment. All Rights Reserved.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

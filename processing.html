@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Assessment</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: black;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        header, footer {
+            background: #1f2937;
+            color: white;
+            padding: 19px 0;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        footer {
+            font-size: 0.95rem;
+            font-weight: normal;
+        }
+
+        #steps-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step {
+            font-size: 48px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            margin: 10px 0;
+        }
+
+        .tick {
+            color: green;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        OCR and NLP-Driven E-Assessment: Automated Grading of Handwritten Exam Papers
+    </header>
+
+    <video autoplay loop muted>
+        <source src="video1.mp4" type="video/mp4">
+    </video>
+
+    <div id="steps-container">
+        <p class="step"><span class="tick">✔</span> Uploading the files</p>
+        <p class="step"><span class="tick">✔</span> Analyzing the documents</p>
+        <p class="step"><span class="tick">✔</span> Extracting the handwritten text</p>
+        <p class="step"><span class="tick">✔</span> Matching the questions</p>
+        <p class="step"><span class="tick">✔</span> Grading in progress</p>
+    </div>
+
+    <footer>
+        © 2025 E-Assessment. All Rights Reserved.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const steps = document.querySelectorAll(".step");
+            let index = 0;
+
+            function showNextStep() {
+                if (index < steps.length) {
+                    steps[index].style.opacity = "1";
+                    if (index > 0) {
+                        steps[index - 1].style.opacity = "0.4";
+                    }
+                    index++;
+                    if (index < steps.length) {
+                        setTimeout(showNextStep, 2000);
+                    }
+                }
+            }
+            showNextStep();
+
+            // Simulate backend processing request
+            try {
+                let response = await fetch("/process_files", { method: "POST" });
+                let result = await response.json();
+                console.log("Processing Complete:", result);
+                window.location.href = "results.html"; // Redirect to results page after processing
+            } catch (error) {
+                console.error("Processing failed:", error);
+            }
+        });
+    </script>
+</body>
+</html>

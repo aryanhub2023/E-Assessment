@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Assessment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: black;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Background Video */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Main Content Wrapper */
+        .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Scrollable Container */
+        .container {
+            position: relative;
+            width: 70%;
+            height: 70vh;
+            background: url('Grader_background.png') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-y: scroll;
+            scrollbar-width: thin;
+            scrollbar-color: gray black;
+            text-align: left;
+        }
+        
+        .container::before {
+            content: '';
+            position: fixed; /* Change from absolute to fixed */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Keep the overlay */
+            z-index: 1; /* Ensure it stays above background but below text */
+            pointer-events: none; /* Prevent interaction issues */
+        }
+        
+        p {
+            font-family: 'Times New Roman', Times, serif;
+            position: relative;
+            z-index: 2; /* Ensures text appears above the overlay */
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: white;
+        }
+
+        /* Header & Footer Styling */
+        header{
+            background: #1f2937; /* Tailwind's bg-gray-800 */
+            color: white;
+            padding: 17px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        footer {
+            background: #1f2937; /* Tailwind's bg-gray-800 */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Fixed at the Top) -->
+    <header>
+        OCR and NLP-Driven E-Assessment: Automated Grading of Handwritten Exam Papers
+    </header>
+
+    <video autoplay loop muted>
+        <source src="video1.mp4" type="video/mp4">
+    </video>
+
+    <!-- Middle Content (Scrollable) -->
+    <div class="content-wrapper">
+        <div class="container">
+            <p>
+                This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...This is a large paragraph of text. You can add as much content as you want here. The background image remains consistent in color with a dark overlay that stays in place while scrolling...
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer (Fixed at the Bottom & Full-Width) -->
+    <footer>
+        © 2025 E-Assessment. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
